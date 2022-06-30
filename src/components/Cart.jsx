@@ -1,21 +1,19 @@
 import React from "react";
-import CartProductListItem from "./CartProductListItem";
-import Numpad from "./Numpad";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
     return (
-        <section className="cart">
-            <div className="cart__product-list">
-                <div className="cart-product-list__body">
-                    <CartProductListItem />
-                    <CartProductListItem />
-                </div>
-                <div className="cart-product-list__conclusion">
-                    <h3>Total Price</h3>
-                </div>
+        <div className="cart">
+            <div className="cart__item-list">
+                <CartItem />
+                <CartItem />
+                <CartItem />
+                <CartItem />
             </div>
-            <Numpad />
-        </section>
+            <div className="cart__total-price">
+                <h3>Total Price</h3>
+            </div>
+        </div>
     );
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import ProductListItem from "./ProductListItem";
 
-const ProductList = () => {
+const RightPane = () => {
     return (
         <section className="product-list">
             <ProductListItem />
@@ -12,4 +12,4 @@ const ProductList = () => {
     );
 }
 
-export default ProductList;
+export default RightPane;

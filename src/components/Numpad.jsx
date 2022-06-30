@@ -1,6 +1,6 @@
 import React from "react";
 
-const Numpad = () => {
+const Numpad = (props) => {
     return (
         <div className="numpad">
             <button className="numpad__item">7</button>

@@ -1,12 +1,12 @@
 import React from "react";
-import Cart from "./Cart";
-import ProductList from "./ProductList";
+import LeftPane from "./LeftPane";
+import RightPane from "./RightPane";
 
 const Body = (props) => {
     return (
         <main className="body">
-            <Cart />
-            <ProductList />
+            <LeftPane />
+            <RightPane />
         </main>
     );
 }
