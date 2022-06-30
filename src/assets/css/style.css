@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(0, 122, 204);
+}
+
+.nav {
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1035px;
+    padding: 20px;
+}
+
+.nav__search-container {
+    width: 50%;
+}
+
+.nav__search-input {
+    border: 0;
+    border-radius: 15px;
+    height: 40px;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.nav__search-input:focus {
+    outline: none;
+}
+
+.body {
+    display: flex;
+    margin: 0 auto;
+    max-width: 1035px;
+}
+
+.cart {
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 35vw;
+    height: calc(100vh - 80px);
+    padding: 10px;
+}
+
+.product-list {
+    align-content: flex-start;
+    align-items: flex-start;
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 65vw;
+    height: calc(100vh - 80px);
+    padding: 10px;
+}
+
+.product-list-item {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.product-list-item:hover {
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;    
+}
+
+.cart-product-list__item {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 20px;
+}
+
+.cart-product-list__item:hover {
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;    
+}
+
+.cart-product-list-item__price-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-list-item {
+    
+}
+
+.cart__product-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.cart-product-list__conclusion {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 20px;
+}
+
+.numpad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.numpad__item {
+    background-color: rgb(250, 250, 250);
+    border: 0;
+    border-radius: 10px;
+    font-size: 30px;
+    height: 50px;
+    margin: 5px;
+    width: 30%;
+    outline: none;
+}
+
+.numpad__item:hover {
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+}
