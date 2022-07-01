@@ -8,6 +8,7 @@ const RightPane = () => {
             <ProductListItem />
             <ProductListItem />
             <ProductListItem />
+            <button className="new-product-button">+</button>
         </section>
     );
 }
