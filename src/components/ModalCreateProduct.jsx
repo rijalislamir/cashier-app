@@ -34,8 +34,11 @@ const ModalCreateProduct = props => {
             <div className="modal-header">Add a New Product</div>
             <div className="modal-body">
                 <form id="add-product-form" onSubmit={onClickAdd}>
-                    <input className="input" type="text" onChange={onChangeTitle} value={title} placeholder="Product Title..." required />
-                    <input className="input" type="text" onChange={onChangePrice} value={price} placeholder="Price..." required />
+                    <label htmlFor="title">Product Title</label>
+                    <input className="input" id="title" type="text" onChange={onChangeTitle} value={title} placeholder="Product Title..." required />
+
+                    <label htmlFor="price">Price</label>
+                    <input className="input" id="price" type="text" onChange={onChangePrice} value={price} placeholder="Price..." required />
                 </form>
             </div>
             <div className="modal-footer">
