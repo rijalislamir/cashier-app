@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ModalDeleteProduct from "./ModalDeleteProduct";
-import ModalCreateProduct from "./ModalCreateProduct";
 
 const ProductListItem = props => {
     const {

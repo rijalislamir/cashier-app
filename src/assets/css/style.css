@@ -76,6 +76,9 @@ body {
 }
 
 .new-product-button {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     border-radius: 50%;
     outline: none;
     border: 0;
