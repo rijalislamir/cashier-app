@@ -4,10 +4,23 @@ import ModalCreateProduct from "./ModalCreateProduct";
 
 const RightPane = () => {
     const [show, setShow] = useState(false);
-    const [productItems, setProductItems] = useState([]);
+    // const [productItems, setProductItems] = useState([]);
+    const [productItems, setProductItems] = useState([
+        {
+            id: 111,
+            title: "A",
+            price: 123
+        }
+    ]);
 
     const addProduct = product => {
         setProductItems( prev => [...prev, product]);
+    };
+
+    const deleteProduct = id => {
+        const products = productItems.filter(product => product.id != id);
+
+        setProductItems(products);
     };
 
     return (
@@ -17,8 +30,10 @@ const RightPane = () => {
                     return (
                         <ProductListItem
                             key={product.id}
+                            id={product.id}
                             title={product.title}
                             price={product.price}
+                            deleteProduct={deleteProduct}
                         />
                     );
                 })
