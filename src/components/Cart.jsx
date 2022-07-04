@@ -4,13 +4,23 @@ import { useSelector } from 'react-redux'
 import CartItem from "./CartItem";
 
 const Cart = () => {
-    const cartItems = useSelector(state => state.cartItems)
+    const cartItems = useSelector(state => state.cart.items)
+    const activeCartItems = useSelector(state => state.cart.active)
 
     return (
         <div className="cart">
             <div className="cart__item-list">
                 {cartItems.length
-                    ? cartItems.map((item) => <CartItem key={item.id} {...item} />)
+                    ? cartItems.map((item, i) => {
+                        return (
+                            <CartItem
+                                classes={activeCartItems === i? "cart__item cart__item--selected" : "cart__item"}
+                                key={item.id}
+                                index={i}
+                                {...item}
+                            />
+                        )
+                    })
                     : "No Cart Item"
                 }
             </div>

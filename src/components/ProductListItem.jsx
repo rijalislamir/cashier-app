@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
-import { cartItemAdded } from '../store/cartItemSlice'
+import { cartItemAdded } from '../store/cartSlice'
 
 import ModalDeleteProduct from "./ModalDeleteProduct";
 

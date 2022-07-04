@@ -31,12 +31,19 @@ const ModalCreateProduct = props => {
         
         setTitle("");
         setPrice("");
-
+        
         onClose();
     };
+    
+    const onCloseModal = () => {
+        setTitle("");
+        setPrice("");
+
+        onClose()
+    }
 
     return (
-        <Modal show={show} onClose={onClose}>
+        <Modal show={show} onClose={onCloseModal}>
             <div className="modal-header">Add a New Product</div>
             <div className="modal-body">
                 <form id="add-product-form" onSubmit={onClickAdd}>

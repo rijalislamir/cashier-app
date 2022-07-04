@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from 'react-redux'
-import { cartItemDeleted } from '../store/cartItemSlice'
+import { cartItemDeleted } from '../store/cartSlice'
 import { productDeleted } from '../store/productSlice'
 
 import Modal from "./Modal";
