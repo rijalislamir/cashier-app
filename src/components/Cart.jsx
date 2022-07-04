@@ -5,7 +5,7 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
     const cartItems = useSelector(state => state.cart.items)
-    const activeCartItems = useSelector(state => state.cart.active)
+    const activeCartItem = useSelector(state => state.cart.active)
 
     return (
         <div className="cart">
@@ -14,7 +14,7 @@ const Cart = () => {
                     ? cartItems.map((item, i) => {
                         return (
                             <CartItem
-                                classes={activeCartItems === i? "cart__item cart__item--selected" : "cart__item"}
+                                classes={activeCartItem === i? "cart__item cart__item--selected" : "cart__item"}
                                 key={item.id}
                                 index={i}
                                 {...item}

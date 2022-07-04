@@ -1,24 +1,31 @@
 import React from "react";
-import { useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { numpadPressed } from "../store/cartSlice"
 
 const Numpad = () => {
+    const activeCartItem = useSelector(state => state.cart.active)
     const dispatch = useDispatch()
+
+    const onClickNumpad = value => {
+        if (activeCartItem !== null) {
+            dispatch(numpadPressed({ value }))
+        }
+    }
 
     return (
         <div className="numpad">
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "7"}))}>7</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "8"}))}>8</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "9"}))}>9</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "4"}))}>4</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "5"}))}>5</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "6"}))}>6</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "1"}))}>1</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "2"}))}>2</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "3"}))}>3</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("7")}>7</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("8")}>8</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("9")}>9</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("4")}>4</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("5")}>5</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("6")}>6</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("1")}>1</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("2")}>2</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("3")}>3</button>
             <button className="numpad__item">OK</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "0"}))}>0</button>
-            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "DEL"}))}>DEL</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("0")}>0</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("DEL")}>DEL</button>
         </div>
     );
 }
