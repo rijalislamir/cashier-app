@@ -13,9 +13,12 @@ const cartItemsSlice = createSlice({
             } else {
                 state[index].qty++
             }
+        },
+        cartItemDeleted(state, action) {
+            state.splice(state.findIndex(product => product.id === action.payload.id), 1)
         }
     }
 })
 
-export const { cartItemAdded } = cartItemsSlice.actions
+export const { cartItemAdded, cartItemDeleted } = cartItemsSlice.actions
 export default cartItemsSlice.reducer

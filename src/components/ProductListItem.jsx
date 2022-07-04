@@ -16,6 +16,11 @@ const ProductListItem = props => {
     const [show, setShow] = useState(false);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
 
+    const onClickDelete = e => {
+        e.stopPropagation()
+        setShow(true)
+    }
+
     return (
         <>
             <div 
@@ -28,7 +33,7 @@ const ProductListItem = props => {
                     showDeleteButton && 
                     <div 
                         className="product-list-item__delete"
-                        onClick={() => setShow(true)}
+                        onClick={onClickDelete}
                     >
                         <i className="fa-solid fa-trash-can"></i>
                     </div>
@@ -36,10 +41,10 @@ const ProductListItem = props => {
                 <h3 className="product-list-item__title">{title}</h3>
                 <div className="product-list-item__price">{price}</div>
             </div>
-                <ModalDeleteProduct
-                    show={show}
-                    onClose={() => setShow(false)}
-                    id={id}
+            <ModalDeleteProduct
+                show={show}
+                onClose={() => setShow(false)}
+                id={id}
             />
         </>
     )

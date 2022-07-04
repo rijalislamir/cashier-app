@@ -120,6 +120,7 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
     margin: 10px 10px 20px;
     padding: 20px;
+    position: relative;
 }
 
 .cart__item:hover {
@@ -247,6 +248,7 @@ body {
     width: 100%;
 }
 
+.cart-item__delete,
 .product-list-item__delete {
     background-color: rgb(230, 0, 0);
     border-radius: 50%;
@@ -261,6 +263,7 @@ body {
     line-height: 22px;
 }
 
+.cart-item__delete:hover,
 .product-list-item__delete:hover {
     background-color: rgb(190, 0, 0);
 }
