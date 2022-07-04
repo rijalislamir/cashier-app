@@ -37,9 +37,15 @@ const cartSlice = createSlice({
         },
         numpadPressed(state, action) {
             if (state.active !== null) {
-                console.log(action.payload.value)
-                state.numpadValue = (state.numpadValue === null) ? action.payload.value : state.numpadValue + action.payload.value
-                state.items[state.active].qty = state.numpadValue
+                if (action.payload.value === "DEL") {
+                    console.log(action.payload.value)
+                    state.numpadValue = state.numpadValue.slice(0, state.numpadValue.length - 1)
+                } else {
+                    state.numpadValue = (state.numpadValue === null) ? action.payload.value : state.numpadValue + action.payload.value
+                }
+
+                state.items[state.active].qty = state.numpadValue || 0
+                
             }
         }
     }

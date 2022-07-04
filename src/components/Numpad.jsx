@@ -16,8 +16,9 @@ const Numpad = () => {
             <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "1"}))}>1</button>
             <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "2"}))}>2</button>
             <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "3"}))}>3</button>
+            <button className="numpad__item">OK</button>
             <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "0"}))}>0</button>
-            <button className="numpad__item numpad__item--double-span">OK</button>
+            <button className="numpad__item" onClick={() => dispatch(numpadPressed({ value: "DEL"}))}>DEL</button>
         </div>
     );
 }
