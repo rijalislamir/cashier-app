@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux'
+import { productAdded } from '../store/productSlice'
+
 import Modal from "./Modal";
 
 const ModalCreateProduct = props => {
     const {
         show,
         onClose,
-        addProduct
     } = props;
+
+    const dispatch = useDispatch()
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
@@ -23,10 +27,12 @@ const ModalCreateProduct = props => {
         e.preventDefault();
 
         const id = +new Date();
-        addProduct({ id, title, price });
+        dispatch(productAdded({ id, title, price }));
         
         setTitle("");
         setPrice("");
+
+        onClose();
     };
 
     return (

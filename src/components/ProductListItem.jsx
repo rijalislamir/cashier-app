@@ -5,8 +5,7 @@ const ProductListItem = props => {
     const {
         id,
         title,
-        price,
-        deleteProduct
+        price
     } = props;
 
     const [show, setShow] = useState(false);
@@ -32,10 +31,9 @@ const ProductListItem = props => {
                 <div className="product-list-item__price">{price}</div>
             </div>
                 <ModalDeleteProduct
-                show={show}
-                onClose={() => setShow(false)}
-                deleteProduct={deleteProduct}
-                id={id}
+                    show={show}
+                    onClose={() => setShow(false)}
+                    id={id}
             />
         </>
     )
