@@ -127,6 +127,11 @@ body {
     cursor: pointer;    
 }
 
+.cart__item-info {
+    display: flex;
+    justify-content: space-between;
+}
+
 .cart {
     display: flex;
     flex-direction: column;
@@ -137,6 +142,10 @@ body {
 .cart__total-price {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    font-weight: bold;
     padding: 20px;
 }
 

@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from 'react-redux'
+
 import CartItem from "./CartItem";
 
 const Cart = () => {
-    const [cartItems, setCartItems] = useState([]);
+    const cartItems = useSelector(state => state.cartItems)
 
     return (
         <div className="cart">
             <div className="cart__item-list">
                 {cartItems.length
-                    ? cartItems.map(item => <CartItem />)
+                    ? cartItems.map((item, i) => <CartItem key={i} {...item} />)
                     : "No Cart Item"
                 }
             </div>
             <div className="cart__total-price">
-                <h3>Total Price</h3>
+                <div>Total: </div>
+                <div>{cartItems.reduce((total, item) => total + (item.price * item.qty), 0)}</div>
             </div>
         </div>
     );

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux'
+import { cartItemAdded } from '../store/cartItemSlice'
+
 import ModalDeleteProduct from "./ModalDeleteProduct";
 
 const ProductListItem = props => {
@@ -7,6 +10,8 @@ const ProductListItem = props => {
         title,
         price
     } = props;
+    
+    const dispatch = useDispatch()
 
     const [show, setShow] = useState(false);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
@@ -17,6 +22,7 @@ const ProductListItem = props => {
                 className="product-list-item"
                 onMouseOver={() => setShowDeleteButton(true)}
                 onMouseOut={() => setShowDeleteButton(false)}
+                onClick={() => dispatch(cartItemAdded({ id, title, price }))}
             >
                 {
                     showDeleteButton && 
