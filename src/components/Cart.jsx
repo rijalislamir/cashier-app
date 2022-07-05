@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from 'react-redux'
 
+import NoShoppingCart from "../assets/image/no-shopping-cart.png"
 import CartItem from "./CartItem";
 
 const Cart = () => {
@@ -21,7 +22,7 @@ const Cart = () => {
                             />
                         )
                     })
-                    : "No Cart Item"
+                    : <img src={NoShoppingCart} className="cart__img" alt="No cart item" />
                 }
             </div>
             <div className="cart__total-price">
