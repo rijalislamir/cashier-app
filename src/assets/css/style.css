@@ -257,22 +257,22 @@ body {
 
 .cart-item__delete,
 .product-list-item__delete {
-    background-color: rgb(230, 0, 0);
+    color: black;
     border-radius: 50%;
-    color: white;
     padding: 5px;
     height: 30px;
     width: 30px;
     position: absolute;
-    right: -15px;
-    top: -15px;
+    right: 0;
+    top: 0;
     text-align: center;
     line-height: 22px;
+    font-size: 22px;
 }
 
 .cart-item__delete:hover,
 .product-list-item__delete:hover {
-    background-color: rgb(190, 0, 0);
+    color: rgb(190, 0, 0);
 }
 
 .cart__img {

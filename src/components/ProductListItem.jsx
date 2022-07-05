@@ -35,7 +35,7 @@ const ProductListItem = props => {
                         className="product-list-item__delete"
                         onClick={onClickDelete}
                     >
-                        <i className="fa-solid fa-trash-can"></i>
+                        &times;
                     </div>
                 }
                 <h3 className="product-list-item__title">{title}</h3>

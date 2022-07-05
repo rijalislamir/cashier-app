@@ -38,7 +38,7 @@ const CartItem = props => {
                         className="product-list-item__delete"
                         onClick={onDeleteCartItem}
                     >
-                        <i className="fa-solid fa-trash-can"></i>
+                        &times;
                     </div>
                 }
                 <h3>{title}</h3>
