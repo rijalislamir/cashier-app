@@ -23,9 +23,9 @@ const Numpad = () => {
             <button className="numpad__item" onClick={() => onClickNumpad("1")}>1</button>
             <button className="numpad__item" onClick={() => onClickNumpad("2")}>2</button>
             <button className="numpad__item" onClick={() => onClickNumpad("3")}>3</button>
-            <button className="numpad__item">OK</button>
+            <button className="numpad__item" onClick={() => onClickNumpad("DEL")}><i class="fa-solid fa-delete-left"></i></button>
             <button className="numpad__item" onClick={() => onClickNumpad("0")}>0</button>
-            <button className="numpad__item" onClick={() => onClickNumpad("DEL")}>DEL</button>
+            <button className="numpad__item">OK</button>
         </div>
     );
 }

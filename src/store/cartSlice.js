@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         cartItemDeleted(state, action) {
             const index = state.items.findIndex(product => product.id === action.payload.id)
 
-            if (state.active) {
+            if (state.active !== null) {
                 if (state.active === index) {
                     state.active = null
                 } else if (state.active > index) {

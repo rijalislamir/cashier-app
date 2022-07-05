@@ -194,6 +194,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
+    transform: 1s;
 }
 
 .modal-content {
