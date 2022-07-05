@@ -8,6 +8,7 @@ import Modal from "./Modal";
 const ModalDeleteProduct = props => {
     const {
         show,
+        title,
         onClose,
         id
     } = props;
@@ -29,7 +30,7 @@ const ModalDeleteProduct = props => {
         <Modal show={show} onClose={onClose}>
             <div className="modal-header">Delete Product</div>
             <div className="modal-body">
-                <p>Are you sure want to delete the product? If any item in the cart, it will be deleted too.</p>
+                <p>Are you sure want to delete <b>{title}</b>? If any item in the cart, it will be deleted too.</p>
             </div>
             <div className="modal-footer">
                 <button className="button primary" onClick={onClose} type="submit">Cancel</button>
