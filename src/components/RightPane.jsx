@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from 'react-redux'
+import NoProductsFound from "../assets/image/no-products-found.png"
 
 import ProductListItem from "./ProductListItem";
 import ModalCreateProduct from "./ModalCreateProduct";
@@ -14,7 +15,7 @@ const RightPane = () => {
         <section className="product-list">
             {products.length
                 ? products.map(product => <ProductListItem key={product.id} {...product} />)
-                : "No Product Item"
+                : <div className="product-list__img-wrapper"><img className="product-list__img" src={NoProductsFound} alt="No products found" /></div>
             }
             <button className="new-product-button" onClick={() => setShow(true)}>+</button>
             <ModalCreateProduct 
