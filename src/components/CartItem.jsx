@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
-import { activeCartItemSelected } from "../store/cartSlice"
-
-import ModalDeleteCartItem from "./ModalDeleteCartItem";
+import { setActiveIndexCartItem } from "../store/cartSlice"
 
 const CartItem = props => {
     const {
         id,
+        setShow,
         classes,
         index,
         title,
@@ -16,11 +15,9 @@ const CartItem = props => {
 
     const dispatch = useDispatch()
 
-    const [show, setShow] = useState(false);
     const [showDeleteButton, setShowDeleteButton] = useState(false)
 
     const onDeleteCartItem = e => {
-        e.stopPropagation()
         setShow(true)
     }
 
@@ -30,7 +27,7 @@ const CartItem = props => {
                 className={classes}
                 onMouseOver={() => setShowDeleteButton(true)}
                 onMouseOut={() => setShowDeleteButton(false)}
-                onClick={() => dispatch(activeCartItemSelected({ index }))}
+                onClick={() => dispatch(setActiveIndexCartItem({ index }))}
             >
                 {
                     showDeleteButton && 
@@ -48,11 +45,6 @@ const CartItem = props => {
                     <span>{(price * qty).toLocaleString()}</span>
                 </div>
             </div>
-            <ModalDeleteCartItem
-                show={show}
-                onClose={() => setShow(false)}
-                id={id}
-            />
         </>
     )
 }

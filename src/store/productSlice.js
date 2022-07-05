@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const productSlice = createSlice({
     name: 'products',
     initialState: {
+        activeIndex: null,
         keyword: "",
         list: []
     },
@@ -15,6 +16,9 @@ const productSlice = createSlice({
         },
         productSearched(state, action) {
             state.keyword = action.payload.keyword
+        },
+        setActiveIndex(state, action) {
+            state.activeIndex = action.payload.index
         }
     }
 })
@@ -22,6 +26,7 @@ const productSlice = createSlice({
 export const {
     productAdded,
     productDeleted,
-    productSearched
+    productSearched,
+    setActiveIndex
 } = productSlice.actions
 export default productSlice.reducer

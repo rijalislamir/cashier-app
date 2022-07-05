@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const cartSlice = createSlice({
     name: 'cartItem',
     initialState: {
-        active: null,
+        activeIndex: null,
         numpadValue: null,
         items: []
     },
@@ -21,22 +21,22 @@ const cartSlice = createSlice({
         cartItemDeleted(state, action) {
             const index = state.items.findIndex(product => product.id === action.payload.id)
 
-            if (state.active !== null) {
-                if (state.active === index) {
-                    state.active = null
-                } else if (state.active > index) {
-                    state.active--
+            if (state.activeIndex !== null) {
+                if (state.activeIndex === index) {
+                    state.activeIndex = null
+                } else if (state.activeIndex > index) {
+                    state.activeIndex--
                 }
             }
 
             state.items.splice(index, 1)
         },
-        activeCartItemSelected(state, action) {
-            state.active = (state.active === action.payload.index) ? null : action.payload.index
+        setActiveIndexCartItem(state, action) {
+            state.activeIndex = (state.activeIndex === action.payload.index) ? null : action.payload.index
             state.numpadValue = null
         },
         numpadPressed(state, action) {
-            if (state.active !== null) {
+            if (state.activeIndex !== null) {
                 if (action.payload.value === "DEL") {
                     console.log(action.payload.value)
                     state.numpadValue = state.numpadValue.slice(0, state.numpadValue.length - 1)
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
                     state.numpadValue = (state.numpadValue === null) ? action.payload.value : state.numpadValue + action.payload.value
                 }
 
-                state.items[state.active].qty = state.numpadValue || 0
+                state.items[state.activeIndex].qty = state.numpadValue || 0
                 
             }
         }
@@ -54,7 +54,7 @@ const cartSlice = createSlice({
 export const { 
     cartItemAdded,
     cartItemDeleted,
-    activeCartItemSelected,
+    setActiveIndexCartItem,
     numpadPressed
 } = cartSlice.actions
 export default cartSlice.reducer

@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
 import { cartItemAdded } from '../store/cartSlice'
-
-import ModalDeleteProduct from "./ModalDeleteProduct";
+import { setActiveIndex } from '../store/productSlice'
 
 const ProductListItem = props => {
     const {
+        setShow,
         id,
+        index,
         title,
         price
     } = props;
     
     const dispatch = useDispatch()
 
-    const [show, setShow] = useState(false);
     const [showDeleteButton, setShowDeleteButton] = useState(false);
 
     const onClickDelete = e => {
         e.stopPropagation()
         setShow(true)
+        dispatch(setActiveIndex({ index }))
     }
 
     return (
@@ -41,7 +42,6 @@ const ProductListItem = props => {
                 <h3 className="product-list-item__title">{title}</h3>
                 <div className="product-list-item__price">{price.toLocaleString()}</div>
             </div>
-            <ModalDeleteProduct show={show} onClose={() => setShow(false)} id={id} title={title} />
         </>
     )
 }
