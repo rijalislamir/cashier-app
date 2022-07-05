@@ -32,7 +32,7 @@ const ModalCreateProduct = props => {
         e.preventDefault();
 
         const id = +new Date();
-        dispatch(productAdded({ id, title, price }));
+        dispatch(productAdded({ id, title, price: parseInt(price) }));
         
         setTitle("");
         setPrice("");

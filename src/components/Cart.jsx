@@ -27,7 +27,7 @@ const Cart = () => {
             </div>
             <div className="cart__total-price">
                 <div>Total: </div>
-                <div>{cartItems.reduce((total, item) => total + (item.price * item.qty), 0)}</div>
+                <div>{cartItems.reduce((total, item) => total + (item.price * item.qty), 0).toLocaleString()}</div>
             </div>
         </div>
     );

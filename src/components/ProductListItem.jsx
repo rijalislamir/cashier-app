@@ -39,7 +39,7 @@ const ProductListItem = props => {
                     </div>
                 }
                 <h3 className="product-list-item__title">{title}</h3>
-                <div className="product-list-item__price">{price}</div>
+                <div className="product-list-item__price">{price.toLocaleString()}</div>
             </div>
             <ModalDeleteProduct
                 show={show}

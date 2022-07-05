@@ -43,9 +43,9 @@ const CartItem = props => {
                 }
                 <h3>{title}</h3>
                 <div className="cart__item-info">
-                    <span>{price}</span>
-                    <span> x {qty} pcs</span>
-                    <span>{price * qty}</span>
+                    <span>{price.toLocaleString()}</span>
+                    <span> x {parseInt(qty).toLocaleString()} pcs</span>
+                    <span>{(price * qty).toLocaleString()}</span>
                 </div>
             </div>
             <ModalDeleteCartItem
