@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { cartItemDeleted } from '../store/cartSlice'
 import { productDeleted } from '../store/productSlice'
@@ -13,6 +13,12 @@ const ModalDeleteProduct = props => {
     } = props;
 
     const dispatch = useDispatch()
+    
+    const buttonDeleteRef = useRef()
+
+    useEffect(() => {
+      if (buttonDeleteRef && buttonDeleteRef.current) buttonDeleteRef.current.focus()
+    })
 
     const onClickDelete = id => {
         dispatch(cartItemDeleted(id))
@@ -27,7 +33,14 @@ const ModalDeleteProduct = props => {
             </div>
             <div className="modal-footer">
                 <button className="button primary" onClick={onClose} type="submit">Cancel</button>
-                <button className="button danger" onClick={() => onClickDelete({ id: id })} type="submit">Delete</button>
+                <button
+                    className="button danger"
+                    onClick={() => onClickDelete({ id: id })}
+                    type="submit"
+                    ref={buttonDeleteRef}
+                >
+                    Delete
+                </button>
             </div>
         </Modal>
     );

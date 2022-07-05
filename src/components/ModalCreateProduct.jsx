@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { productAdded } from '../store/productSlice'
 
@@ -14,6 +14,11 @@ const ModalCreateProduct = props => {
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
+    const inputRef = useRef()
+
+    useEffect(() => {
+        if (inputRef && inputRef.current && !title) inputRef.current.focus()
+    })
 
     const onChangeTitle = e => {
         setTitle(e.target.value);
@@ -46,12 +51,29 @@ const ModalCreateProduct = props => {
         <Modal show={show} onClose={onCloseModal}>
             <div className="modal-header">Add a New Product</div>
             <div className="modal-body">
-                <form id="add-product-form" onSubmit={onClickAdd}>
+                <form id="add-product-form" onSubmit={onClickAdd} autoComplete="off">
                     <label htmlFor="title">Product Title</label>
-                    <input className="input" id="title" type="text" onChange={onChangeTitle} value={title} placeholder="Product Title..." required />
+                    <input
+                        className="input"
+                        id="title"
+                        type="text"
+                        onChange={onChangeTitle}
+                        value={title}
+                        placeholder="Product Title..."
+                        ref={inputRef}
+                        required
+                    />
 
                     <label htmlFor="price">Price</label>
-                    <input className="input" id="price" type="text" onChange={onChangePrice} value={price} placeholder="Price..." required />
+                    <input
+                        className="input"
+                        id="price"
+                        type="text"
+                        onChange={onChangePrice}
+                        value={price} 
+                        placeholder="Price..."
+                        required
+                    />
                 </form>
             </div>
             <div className="modal-footer">
