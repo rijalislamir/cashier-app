@@ -45,7 +45,6 @@ const cartSlice = createSlice({
                 }
 
                 state.items[state.activeIndex].qty = state.numpadValue || 0
-                
             }
         }
     }

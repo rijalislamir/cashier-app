@@ -301,3 +301,52 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.invoice {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.invoice__header {
+    padding: 10px;
+}
+
+.invoice__body {
+    padding: 10px;
+}
+
+.invoice__footer {
+    padding: 10px;
+}
+
+.invoice__info {
+    text-align: left;
+}
+
+.invoice-body__table {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: left;
+}
+
+.table__item-name {
+    width: 50%;
+}
+
+.table__price {
+    width: 20%;
+}
+
+.table__qty {
+    width: 5%;
+}
+
+.table__amount {
+    text-align: right;
+}
+
+.dashed {
+    border-top: 1px dashed black;
+}
