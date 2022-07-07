@@ -54,11 +54,6 @@ body {
     justify-content: stretch;
     width: 35vw;
     height: calc(100vh - 80px);
-    padding: 10px;
-}
-
-.cart__list {
-    overflow-y: auto;
 }
 
 .product-list {
@@ -121,7 +116,7 @@ body {
     margin: 10px 20px 10px;
     padding: 20px;
     position: relative;
-    width: 100%;
+    width: 90%;
 }
 
 .cart__item:hover {
@@ -155,6 +150,7 @@ body {
     font-size: 25px;
     font-weight: bold;
     padding: 20px;
+    margin: 0 10px;
 }
 
 .numpad {
@@ -286,7 +282,10 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 0 10px;
+    padding: 10px 0;
+    height: calc(100vh - 100px - 73px - 280px);
+    overflow-y: overlay;
+    overflow-x: hidden; 
 }
 
 .product-list__img {
@@ -349,4 +348,13 @@ body {
 
 .dashed {
     border-top: 1px dashed black;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart__item-list:hover::-webkit-scrollbar-thumb  {
+    background-color: black;
+    border-radius: 25px;
 }
