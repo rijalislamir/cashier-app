@@ -11,7 +11,7 @@ const RightPane = () => {
     const [show, setShow] = useState(false);
     const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
     const activeIndex = useSelector(state => state.products.activeIndex)
-    const keyword = useSelector(state => state.products.keyword)
+    const keyword = useSelector(state => state.products.keyword).toLowerCase()
     const products = useSelector(state => state.products.list)
         .filter(product => product.title.toLowerCase().includes(keyword))
     const activeProduct = products[activeIndex] || {}

@@ -13,13 +13,16 @@ const Header = () => {
                 </div>
                 <div className="nav__search-container">
                     <form onSubmit={e => e.preventDefault()} autoComplete="off">
-                        <input
-                            className="nav__search-input"
-                            type="search"
-                            id="keyword"
-                            placeholder="Search..."
-                            onChange={e => dispatch(productSearched({ keyword: e.target.value }))}
-                        />
+                        <div className="nav__search-wrapper">
+                            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input
+                                className="nav__search-input"
+                                type="search"
+                                id="keyword"
+                                placeholder="Search..."
+                                onChange={e => dispatch(productSearched({ keyword: e.target.value }))}
+                            />
+                        </div>
                     </form>
                 </div>
             </nav>

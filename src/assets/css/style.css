@@ -25,6 +25,10 @@ header {
     width: 50%;
 }
 
+.nav__search-wrapper {
+    position: relative;
+}
+
 .nav__search-input {
     border: 0;
     border-radius: 15px;
