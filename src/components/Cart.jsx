@@ -30,6 +30,7 @@ const Cart = () => {
                 }
             </div>
             <ModalDeleteCartItem
+                title={activeCartItem.title}
                 show={showDeleteCartItemModal}
                 onClose={() => setShowDeleteCartItemModal(false)}
                 id={activeCartItem.id}

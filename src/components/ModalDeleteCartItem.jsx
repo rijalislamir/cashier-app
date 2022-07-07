@@ -6,6 +6,7 @@ import Modal from "./Modal";
 
 const ModalDeleteCartItem = props => {
     const {
+        title,
         show,
         onClose,
         id
@@ -25,19 +26,14 @@ const ModalDeleteCartItem = props => {
         onClose()
     }
     
-    const onCloseDeleteCartItemModal = () => {
-        dispatch(setActiveIndexCartItem({ index: null }))
-        onClose()
-    }
-
     return (
-        <Modal show={show} onClose={onCloseDeleteCartItemModal}>
+        <Modal show={show} onClose={onClose}>
             <div className="modal-header">Delete Cart Item</div>
             <div className="modal-body">
-                <p>Are you sure want to delete this product item from cart?</p>
+                <p>Are you sure want to delete <b>{title}</b> from cart?</p>
             </div>
             <div className="modal-footer">
-                <button className="button primary" onClick={onCloseDeleteCartItemModal} type="submit">Cancel</button>
+                <button className="button primary" onClick={onClose} type="submit">Cancel</button>
                 <button
                     className="button danger"
                     onClick={() => onClickDelete(id)}

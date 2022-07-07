@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setActiveIndexCartItem } from "../store/cartSlice"
 
 const CartItem = props => {
@@ -13,11 +13,15 @@ const CartItem = props => {
         qty
     } = props
 
+    const activeCartItemIndex = useSelector(state => state.cart.activeIndex)
+
     const dispatch = useDispatch()
 
     const [showDeleteButton, setShowDeleteButton] = useState(false)
 
     const onDeleteCartItem = e => {
+        e.stopPropagation()
+        if (activeCartItemIndex !== index) dispatch(setActiveIndexCartItem({ index })) 
         setShow(true)
     }
 
