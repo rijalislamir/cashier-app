@@ -4,6 +4,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import NoShoppingCart from "../assets/image/no-shopping-cart.png"
 import CartItem from "./CartItem";
 import ModalDeleteCartItem from "./ModalDeleteCartItem";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Cart = () => {
     const [showDeleteCartItemModal, setShowDeleteCartItemModal] = useState(false)
@@ -14,6 +15,7 @@ const Cart = () => {
     return (
         <div className="cart">
             <div className="cart__item-list">
+                <AnimatePresence initial={false} exitBeforeEnter={true} >
                 {cartItems.length
                     ? cartItems.map((item, i) => {
                         return (
@@ -26,8 +28,13 @@ const Cart = () => {
                             />
                         )
                     })
-                    : <img src={NoShoppingCart} className="cart__img" alt="No cart item" />
+                    : <motion.img
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        src={NoShoppingCart} className="cart__img" alt="No cart item" />
                 }
+                </AnimatePresence>
             </div>
             <ModalDeleteCartItem
                 title={activeCartItem.title}

@@ -5,6 +5,7 @@ import NoProductsFound from "../assets/image/no-products-found.png"
 import ProductListItem from "./ProductListItem";
 import ModalCreateProduct from "./ModalCreateProduct";
 import ModalDeleteProduct from "./ModalDeleteProduct";
+import { motion, AnimatePresence } from "framer-motion";
 
 const RightPane = () => {
     const [show, setShow] = useState(false);
@@ -17,10 +18,18 @@ const RightPane = () => {
 
     return (
         <section className="product-list">
-            {products.length
-                ? products.map((product, i) => <ProductListItem key={product.id} index={i} {...product} setShow={setShowDeleteProductModal} />)
-                : <div className="product-list__img-wrapper"><img className="product-list__img" src={NoProductsFound} alt="No products found" /></div>
-            }
+            <AnimatePresence initial={false} exitBeforeEnter={true}>
+                {products.length
+                    ? products.map((product, i) => <ProductListItem key={product.id} index={i} {...product} setShow={setShowDeleteProductModal} />)
+                    : <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        className="product-list__img-wrapper">
+                        <img className="product-list__img" src={NoProductsFound} alt="No products found" />
+                    </motion.div>
+                }
+            </AnimatePresence>
             <button className="new-product-button" onClick={() => setShow(true)}>+</button>
             <ModalCreateProduct 
                 show={show}
