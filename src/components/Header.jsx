@@ -14,7 +14,6 @@ const Header = () => {
                 <div className="nav__search-container">
                     <form onSubmit={e => e.preventDefault()} autoComplete="off">
                         <div className="nav__search-wrapper">
-                            <span><i class="fa-solid fa-magnifying-glass"></i></span>
                             <input
                                 className="nav__search-input"
                                 type="search"
@@ -22,6 +21,7 @@ const Header = () => {
                                 placeholder="Search..."
                                 onChange={e => dispatch(productSearched({ keyword: e.target.value }))}
                             />
+                            <span className="nav__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                         </div>
                     </form>
                 </div>

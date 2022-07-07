@@ -27,14 +27,27 @@ header {
 
 .nav__search-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav__search-icon {
+    position: absolute;
+    color: black;
+    left: 10px;
 }
 
 .nav__search-input {
+    position: absolute;
     border: 0;
     border-radius: 15px;
     height: 40px;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 40px;
     width: 100%;
+}
+
+.nav__search-input:focus {
+    background-color: #eaeaea;
 }
 
 .nav__search-input:focus {
@@ -57,7 +70,7 @@ body {
     flex-direction: column;
     justify-content: stretch;
     width: 35vw;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 68px);
 }
 
 .product-list {
@@ -66,7 +79,7 @@ body {
     background-color: rgb(220, 220, 220);
     display: flex;
     flex-wrap: wrap;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 68);
     justify-content: flex-start;
     margin: 0 auto;
     width: 65vw;
