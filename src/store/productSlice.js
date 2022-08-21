@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk(
     'products/getProducts',
     async () => {
         try {
-            const response = await axios.get(`${process.env.REACT_APP_LOCAL_API}`)
+            const response = await axios.get(`${process.env.REACT_APP_API}`)
 
             return response.data
         } catch (error) {
@@ -19,7 +19,7 @@ export const getProducts = createAsyncThunk(
         'products/createProduct',
         async (params, thunkAPI) => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_LOCAL_API}`, params)
+            const response = await axios.post(`${process.env.REACT_APP_API}`, params)
             
             thunkAPI.dispatch(getProducts())
 
@@ -35,7 +35,7 @@ export const deleteProduct = createAsyncThunk(
     async (props, thunkAPI) => {
         try {
             const { _id } = props
-            const response = await axios.delete(`${process.env.REACT_APP_LOCAL_API}/${_id}`)
+            const response = await axios.delete(`${process.env.REACT_APP_API}/${_id}`)
 
             thunkAPI.dispatch(getProducts())
 
