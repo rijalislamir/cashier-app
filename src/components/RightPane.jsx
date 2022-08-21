@@ -10,17 +10,16 @@ import { motion, AnimatePresence } from "framer-motion";
 const RightPane = () => {
     const [show, setShow] = useState(false);
     const [showDeleteProductModal, setShowDeleteProductModal] = useState(false);
-    const activeIndex = useSelector(state => state.products.activeIndex)
+    const [deleteProduct, setDeleteProduct] = useState({})
     const keyword = useSelector(state => state.products.keyword).toLowerCase()
     const products = useSelector(state => state.products.list)
-        .filter(product => product.title.toLowerCase().includes(keyword))
-    const activeProduct = products[activeIndex] || {}
+        .filter(product => product.name.toLowerCase().includes(keyword))
 
     return (
         <section className="product-list">
             <AnimatePresence initial={false} exitBeforeEnter={true}>
                 {products.length
-                    ? products.map((product, i) => <ProductListItem key={product.id} index={i} {...product} setShow={setShowDeleteProductModal} />)
+                    ? products.map((product, i) => <ProductListItem key={i} index={i} {...product} setShow={setShowDeleteProductModal} setDeleteProduct={setDeleteProduct} />)
                     : <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -30,16 +29,19 @@ const RightPane = () => {
                     </motion.div>
                 }
             </AnimatePresence>
+
             <button className="new-product-button" onClick={() => setShow(true)}>+</button>
+
             <ModalCreateProduct 
                 show={show}
                 onClose={() => setShow(false)}
             />
+
             <ModalDeleteProduct
                 show={showDeleteProductModal}
                 onClose={() => setShowDeleteProductModal(false)}
-                title={activeProduct.title}
-                id={activeProduct.id}
+                _id={deleteProduct._id}
+                name={deleteProduct.name}
             />
         </section>
     );

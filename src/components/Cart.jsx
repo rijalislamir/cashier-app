@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { useSelector, useDispatch} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import NoShoppingCart from "../assets/image/no-shopping-cart.png"
 import CartItem from "./CartItem";

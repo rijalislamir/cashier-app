@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 const CartItem = props => {
     const {
-        id,
         setShow,
         classes,
         index,

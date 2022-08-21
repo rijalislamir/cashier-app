@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from 'react-redux'
-import { productAdded } from '../store/productSlice'
+import { createProduct } from '../store/productSlice'
 
 import Modal from "./Modal";
 
@@ -12,16 +12,16 @@ const ModalCreateProduct = props => {
 
     const dispatch = useDispatch()
 
-    const [title, setTitle] = useState("");
+    const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const inputRef = useRef()
 
     useEffect(() => {
-        if (inputRef && inputRef.current && !title) inputRef.current.focus()
+        if (inputRef && inputRef.current && !name) inputRef.current.focus()
     })
 
-    const onChangeTitle = e => {
-        setTitle(e.target.value);
+    const onChangeName = e => {
+        setName(e.target.value);
     };
 
     const onChangePrice = e => {
@@ -31,17 +31,16 @@ const ModalCreateProduct = props => {
     const onClickAdd = e => {
         e.preventDefault();
 
-        const id = +new Date();
-        dispatch(productAdded({ id, title, price: parseInt(price) }));
+        dispatch(createProduct({ name, price: parseInt(price) }))
         
-        setTitle("");
+        setName("");
         setPrice("");
         
         onClose();
     };
     
     const onCloseModal = () => {
-        setTitle("");
+        setName("");
         setPrice("");
 
         onClose()
@@ -52,14 +51,14 @@ const ModalCreateProduct = props => {
             <div className="modal-header">Add a New Product</div>
             <div className="modal-body">
                 <form id="add-product-form" onSubmit={onClickAdd} autoComplete="off">
-                    <label htmlFor="title">Product Title</label>
+                    <label htmlFor="name">Product Name</label>
                     <input
                         className="input"
-                        id="title"
+                        id="name"
                         type="text"
-                        onChange={onChangeTitle}
-                        value={title}
-                        placeholder="Product Title..."
+                        onChange={onChangeName}
+                        value={name}
+                        placeholder="Product Name..."
                         ref={inputRef}
                         required
                     />

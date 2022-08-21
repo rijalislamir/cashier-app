@@ -21,7 +21,7 @@ const Header = () => {
                                 placeholder="Search..."
                                 onChange={e => dispatch(productSearched({ keyword: e.target.value }))}
                             />
-                            <span className="nav__search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <span className="nav__search-icon"><i className="fa-solid fa-magnifying-glass"></i></span>
                         </div>
                     </form>
                 </div>

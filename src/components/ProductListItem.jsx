@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux'
 import { cartItemAdded } from '../store/cartSlice'
-import { setActiveIndex } from '../store/productSlice'
 
 import { motion } from "framer-motion";
 
 const ProductListItem = props => {
     const {
         setShow,
-        id,
-        index,
-        title,
-        price
+        _id,
+        name,
+        price,
+        setDeleteProduct
     } = props;
     
     const dispatch = useDispatch()
@@ -21,7 +20,7 @@ const ProductListItem = props => {
     const onClickDelete = e => {
         e.stopPropagation()
         setShow(true)
-        dispatch(setActiveIndex({ index }))
+        setDeleteProduct({ _id, name })        
     }
 
     return (
@@ -32,7 +31,7 @@ const ProductListItem = props => {
             className="product-list-item"
             onMouseOver={() => setShowDeleteButton(true)}
             onMouseOut={() => setShowDeleteButton(false)}
-            onClick={() => dispatch(cartItemAdded({ id, title, price }))}
+            onClick={() => dispatch(cartItemAdded({ _id, name, price }))}
         >
             {
                 showDeleteButton && 
@@ -43,7 +42,7 @@ const ProductListItem = props => {
                     &times;
                 </div>
             }
-            <h3 className="product-list-item__title">{title}</h3>
+            <h3 className="product-list-item__name">{name}</h3>
             <div className="product-list-item__price">{price.toLocaleString()}</div>
         </motion.div>
     )

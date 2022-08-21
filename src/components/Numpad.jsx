@@ -27,9 +27,9 @@ const Numpad = () => {
                 <button className="numpad__item" onClick={() => onClickNumpad("1")}>1</button>
                 <button className="numpad__item" onClick={() => onClickNumpad("2")}>2</button>
                 <button className="numpad__item" onClick={() => onClickNumpad("3")}>3</button>
-                <button className="numpad__item" onClick={() => onClickNumpad("DEL")}><i class="fa-solid fa-delete-left"></i></button>
+                <button className="numpad__item" onClick={() => onClickNumpad("DEL")}><i className="fa-solid fa-delete-left"></i></button>
                 <button className="numpad__item" onClick={() => onClickNumpad("0")}>0</button>
-                <button className="numpad__item" onClick={() => setShow(true)}><i class="fa-solid fa-circle-chevron-right"></i></button>
+                <button className="numpad__item" onClick={() => setShow(true)}><i className="fa-solid fa-circle-chevron-right"></i></button>
             </div>
             <ModalFinishCart show={show} onClose={() => setShow(false)} />
         </>

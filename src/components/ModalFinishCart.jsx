@@ -42,9 +42,9 @@ const ModalFinishCart = props => {
                             <th className='table__qty'>QTY</th>
                             <th className='table__amount'>AMOUNT</th>
                         </tr>
-                        {cart.items.map(item => {
+                        {cart.items.map((item, i) => {
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td className='table__item-name'>{item.title}</td>
                                     <td className='table__price'>{item.price}</td>
                                     <td className='table__qty'>{item.qty}</td>
